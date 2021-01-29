@@ -1,13 +1,16 @@
-import React from 'react'
-import { View, Text, ImageBackground, StyleSheet } from 'react-native'
-import styles from './styles'
-import StyledButton from '../StyledButton'
+import React from 'react';
+import {View, Text, ImageBackground} from 'react-native';
+import StyledButton from "../StyledButton";
+import styles from './styles';
 
 const CarItem = (props) => {
-  const{name,tagline,taglineCTA, image } = props;
+
+  const { name, tagline, taglineCTA, image } = props.car;
+
   return (
     <View style={styles.carContainer}>
-      <ImageBackground source={image}
+      <ImageBackground
+        source={image}
         style={styles.image}
       />
 
@@ -18,8 +21,8 @@ const CarItem = (props) => {
           {' '}
           <Text style={styles.subtitleCTA}>
             {taglineCTA}
-            </Text>
           </Text>
+        </Text>
       </View>
 
       <View style={styles.buttonsContainer}>
@@ -27,18 +30,21 @@ const CarItem = (props) => {
           type="primary"
           content={"Custom Order"}
           onPress={() => {
-            console.warn("custom order button pressed");
-          }} />
+            console.warn("Custom Order was pressed");
+          }}
+        />
+
         <StyledButton
           type="secondary"
           content={"Existing Inventory"}
           onPress={() => {
-            console.warn("Existing Inventory button pressed");
-          }} />
+            console.warn("Existing Inventory was pressed");
+          }}
+        />
       </View>
+
     </View>
-  )
-}
+  );
+};
 
-export default CarItem
-
+export default CarItem;
